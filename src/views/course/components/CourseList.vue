@@ -89,8 +89,24 @@
           width="180"
           align="center"
         >
-          <el-button>编辑</el-button>
-          <el-button>内容管理</el-button>
+           <template slot-scope="scope">
+            <el-button
+              @click="$router.push({
+                name: 'course-edit',
+                params: {
+                  courseId: scope.row.id
+                }
+              })"
+            >编辑</el-button>
+            <el-button
+              @click="$router.push({
+                name: 'course-section',
+                params: {
+                  courseId: scope.row.id
+                }
+              })"
+            >内容管理</el-button>
+          </template>
         </el-table-column>
       </el-table>
       <el-pagination
