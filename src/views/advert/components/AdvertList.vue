@@ -4,7 +4,7 @@
       <div slot="header">
         <el-button
           @click="$router.push({
-            name: 'course-create'
+            name: 'advert-create'
           })"
         >添加广告</el-button>
       </div>

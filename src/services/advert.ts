@@ -19,3 +19,18 @@ export const changeAdvertStatus = (params: any) => {
     params
   })
 }
+
+export const getAllSpaces = () => {
+  return request({
+    method: 'GET',
+    url: '/front/ad/space/getAllSpaces'
+  })
+}
+
+export const saveOrUpdateAd = (data: any) => {
+  return request({
+    method: 'POST',
+    url: '/front/ad/saveOrUpdate',
+    data
+  })
+}
