@@ -111,7 +111,7 @@ export default Vue.extend({
           { required: true, message: '请输入广告链接', trigger: 'change' }
         ]
       },
-      spaceList: [] // 父级菜单列表
+      spaceList: []
     }
   },
 

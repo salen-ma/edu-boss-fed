@@ -65,9 +65,9 @@
            <template slot-scope="scope">
             <el-button
               @click="$router.push({
-                name: 'course-edit',
+                name: 'advert-edit',
                 params: {
-                  courseId: scope.row.id
+                  advertId: scope.row.id
                 }
               })"
             >编辑</el-button>

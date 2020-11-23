@@ -1,12 +1,18 @@
 <template>
-  <div class="advert-space">广告位管理</div>
+  <div class="advert-space">
+    <space-list />
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import SpaceList from './components/SpaceList.vue'
 
 export default Vue.extend({
-  name: 'AdvertSpaceIndex'
+  name: 'AdvertSpaceIndex',
+  components: {
+    SpaceList
+  }
 })
 </script>
 

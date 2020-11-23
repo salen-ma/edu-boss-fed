@@ -34,3 +34,11 @@ export const saveOrUpdateAd = (data: any) => {
     data
   })
 }
+
+export const saveOrUpdateAdSpace = (data: any) => {
+  return request({
+    method: 'POST',
+    url: '/front/ad/space/saveOrUpdate',
+    data
+  })
+}
