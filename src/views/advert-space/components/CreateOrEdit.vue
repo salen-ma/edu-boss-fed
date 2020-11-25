@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { saveOrUpdateAdSpace } from '@/services/advert'
+import { saveOrUpdateAdSpace, getSpaceInfo } from '@/services/advert'
 
 export default Vue.extend({
   name: 'AdvertCreateOrEdit',
@@ -29,6 +29,10 @@ export default Vue.extend({
     isEdit: {
       type: Boolean,
       default: false
+    },
+    spaceId: {
+      type: Number,
+      default: -1
     }
   },
   data () {
@@ -44,7 +48,20 @@ export default Vue.extend({
     }
   },
 
+  created () {
+    if (this.isEdit) {
+      this.loadSpaceInfo()
+    }
+  },
+
   methods: {
+    async loadSpaceInfo () {
+      const { data } = await getSpaceInfo({ id: this.spaceId })
+      if (data.content) {
+        this.form = data.content
+      }
+    },
+
     async onSubmit () {
       (this.$refs.spaceForm as any).validate(async (valid: boolean) => {
         if (valid) {

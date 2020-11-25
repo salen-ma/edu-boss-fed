@@ -42,3 +42,11 @@ export const saveOrUpdateAdSpace = (data: any) => {
     data
   })
 }
+
+export const getSpaceInfo = (params: any) => {
+  return request({
+    method: 'GET',
+    url: '/front/ad/space/getSpaceById',
+    params
+  })
+}

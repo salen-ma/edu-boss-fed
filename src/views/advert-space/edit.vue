@@ -1,6 +1,6 @@
 <template>
-  <div class="menu-create">
-    <create-or-edit :is-edit="true" />
+  <div class="advert-space-create">
+    <create-or-edit :is-edit="true" :spaceId="spaceId" />
   </div>
 </template>
 
@@ -9,9 +9,15 @@ import Vue from 'vue'
 import CreateOrEdit from './components/CreateOrEdit.vue'
 
 export default Vue.extend({
-  name: 'MenuCreate',
+  name: 'AdvertSpaceCreate',
   components: {
     CreateOrEdit
+  },
+  props: {
+    spaceId: {
+      type: Number,
+      default: -1
+    }
   },
   data () {
     return {}
