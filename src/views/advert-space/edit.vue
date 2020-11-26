@@ -15,7 +15,7 @@ export default Vue.extend({
   },
   props: {
     spaceId: {
-      type: Number,
+      type: [String, Number],
       default: -1
     }
   },

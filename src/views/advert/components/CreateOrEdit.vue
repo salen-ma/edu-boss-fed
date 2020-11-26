@@ -18,7 +18,7 @@
             ></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="开始时间" prop="startTime">
+        <el-form-item label="开始时间">
           <el-date-picker
             v-model="form.startTime"
             type="date"
@@ -26,7 +26,7 @@
             value-format="yyyy-MM-dd"
           />
         </el-form-item>
-        <el-form-item label="到期时间" prop="endTime">
+        <el-form-item label="到期时间">
           <el-date-picker
             v-model="form.endTime"
             type="date"
@@ -70,7 +70,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { getAllSpaces, saveOrUpdateAd } from '@/services/advert'
+import { getAllSpaces, saveOrUpdateAd, getAdInfo } from '@/services/advert'
 import CourseImage from '@/views/course/components/CourseImage.vue'
 
 export default Vue.extend({
@@ -79,6 +79,10 @@ export default Vue.extend({
     isEdit: {
       type: Boolean,
       default: false
+    },
+    advertId: {
+      type: [String, Number],
+      default: -1
     }
   },
   components: {
@@ -117,9 +121,19 @@ export default Vue.extend({
 
   created () {
     this.loadSpaces()
+    if (this.isEdit) {
+      this.loadAdInfo()
+    }
   },
 
   methods: {
+    async loadAdInfo () {
+      const { data } = await getAdInfo({ id: this.advertId })
+      if (data.content) {
+        this.form = data.content
+      }
+    },
+
     async loadSpaces () {
       const { data } = await getAllSpaces()
       if (data.content) {
@@ -134,6 +148,8 @@ export default Vue.extend({
           if (data.success) {
             this.$message.success('提交成功')
             this.$router.back()
+          } else {
+            this.$message.warning(data.message)
           }
         } else {
           return false

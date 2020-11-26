@@ -9,12 +9,9 @@ import Vue from 'vue'
 import CreateOrEdit from './components/CreateOrEdit.vue'
 
 export default Vue.extend({
-  name: 'MenuCreate',
+  name: 'AdvertCreate',
   components: {
     CreateOrEdit
-  },
-  data () {
-    return {}
   }
 })
 </script>

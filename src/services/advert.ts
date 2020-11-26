@@ -43,10 +43,18 @@ export const saveOrUpdateAdSpace = (data: any) => {
   })
 }
 
-export const getSpaceInfo = (params: any) => {
+export const getSpaceInfo = (params: {id: number | string}) => {
   return request({
     method: 'GET',
     url: '/front/ad/space/getSpaceById',
+    params
+  })
+}
+
+export const getAdInfo = (params: {id: number | string}) => {
+  return request({
+    method: 'GET',
+    url: '/front/ad/getAdById',
     params
   })
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="menu-create">
-    <create-or-edit :is-edit="true" />
+    <create-or-edit :is-edit="true" :advertId="advertId" />
   </div>
 </template>
 
@@ -12,6 +12,12 @@ export default Vue.extend({
   name: 'MenuCreate',
   components: {
     CreateOrEdit
+  },
+  props: {
+    advertId: {
+      type: [String, Number],
+      required: true
+    }
   },
   data () {
     return {}

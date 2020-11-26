@@ -31,7 +31,7 @@ export default Vue.extend({
       default: false
     },
     spaceId: {
-      type: Number,
+      type: [String, Number],
       default: -1
     }
   },
