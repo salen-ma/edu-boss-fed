@@ -6,6 +6,7 @@
       </div>
       <el-form
         ref="form"
+        :inline="true"
         label-width="70px"
         label-position="left"
         :model="filterParams"
